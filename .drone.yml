@@ -21,7 +21,7 @@ steps:
         from_secret: loginNam
       password:
         from_secret: pwd
-      repo: drone-harbor.powertime.cn:444/library/drone-demo:v1.0.0
+      repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
 
 volumes:
