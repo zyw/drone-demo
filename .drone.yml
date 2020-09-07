@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build-jar
+    image: maven:3.6.3-jdk-8-slim
+    commands:
+      - mvn clean package
+
+  - name: build-img
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      username:
+        from_secret: loginNam
+      password:
+        from_secret: pwd
+      repo: drone-harbor.powertime.cn:444/library/drone-demo:v1.0.0
+      registry: drone-harbor.powertime.cn:444
