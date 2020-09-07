@@ -2,20 +2,9 @@ kind: pipeline
 type: docker
 name: default
 
-clone:
-  disable: true
-
-volumes:
-  - name: cache
-    host:
-      path: /mnt/cache
-
 steps:
   - name: build-jar
     image: maven:3.6.3-jdk-8-slim
-    volumes:
-      - name: cache
-        path: /root/.m2
     commands:
       - mvn clean package -DskipTests
 
