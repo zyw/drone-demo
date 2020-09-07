@@ -9,8 +9,7 @@ steps:
   - name: build-jar
     image: maven:3.6.3-jdk-8-slim
     commands:
-      - cd drone-demo
-      - mvn clean package
+      - ls
 
   - name: build-img
     image: plugins/docker
