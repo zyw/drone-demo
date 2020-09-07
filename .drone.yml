@@ -9,6 +9,7 @@ steps:
   - name: build-jar
     image: maven:3.6.3-jdk-8-slim
     commands:
+      - pwd
       - mvn clean package
 
   - name: build-img
