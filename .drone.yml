@@ -23,6 +23,7 @@ steps:
         from_secret: pwd
       repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
+      debug: true
 
 volumes:
   - name: maven_cache
