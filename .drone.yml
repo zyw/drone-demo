@@ -21,7 +21,7 @@ steps:
         from_secret: loginName
       password:
         from_secret: pwd
-      repo: zyw090111@163.com/zyw/drone-demo
+      repo: zyw090111@163.com/zywlxh/drone-demo
       registry: zyw090111@163.com
       debug: true
 
