@@ -24,6 +24,15 @@ steps:
       repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
       registry: registry.cn-hangzhou.aliyuncs.com
       debug: true
+  - name: deploy
+    image: appleboy/drone-ssh
+    settings:
+      host: 192.168.1.154
+      username: root
+      password: root
+      port: 22
+      script:
+        docker run -d --name drone-demo -p 9999:9999 registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
 
 volumes:
   - name: maven_cache
