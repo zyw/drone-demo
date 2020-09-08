@@ -14,8 +14,6 @@ steps:
 
   - name: build-img
     image: plugins/docker
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
     settings:
       dockerfile: Dockerfile
       tags: latest
@@ -26,9 +24,7 @@ steps:
       repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
       debug: true
-
-      add_host:
-        - drone-harbor.powertime.cn:192.168.1.161
+      custom_dns_search: 192.168.1.161
 
 volumes:
   - name: maven_cache
