@@ -3,6 +3,7 @@ type: docker
 name: default
 
 steps:
+  # 编译构件java代码
   - name: build-jar
     image: maven:3.6.3-jdk-8-slim
     privileged: true
@@ -12,6 +13,7 @@ steps:
     commands:
       - mvn clean package -DskipTests
 
+  # 打包docker镜像到仓库
   - name: build-img
     image: plugins/docker
     settings:
@@ -24,6 +26,7 @@ steps:
       repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
       registry: registry.cn-hangzhou.aliyuncs.com
       debug: true
+  # 利用ssh插件部署应用到知道服务器
   - name: deploy
     image: appleboy/drone-ssh
     settings:
