@@ -21,11 +21,10 @@ steps:
         from_secret: loginName
       password:
         from_secret: pwd
-      repo: drone-harbor.powertime.cn:444/library/drone-demo
-      registry: drone-harbor.powertime.cn:444
+      repo: 192.168.1.161:81/library/drone-demo
+      registry: 192.168.1.161:81
       debug: true
-      add_host:
-        - drone-harbor.powertime.cn:192.168.1.161
+      insecure: true
 
 volumes:
   - name: maven_cache
