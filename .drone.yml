@@ -21,8 +21,8 @@ steps:
         from_secret: loginName
       password:
         from_secret: pwd
-      repo: drone-harbor.powertime.cn:444/library/drone-demo
-      registry: drone-harbor.powertime.cn:444
+      repo: 192.168.1.161:444/library/drone-demo
+      registry: 192.168.1.161:444
       debug: true
       custom_dns:
         - 192.168.1.161
