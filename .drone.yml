@@ -24,7 +24,8 @@ steps:
       repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
       debug: true
-      custom_dns: [ 192.168.1.161 ]
+      custom_dns:
+        - 192.168.1.161
 
 volumes:
   - name: maven_cache
