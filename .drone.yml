@@ -14,6 +14,8 @@ steps:
 
   - name: build-img
     image: plugins/docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     settings:
       dockerfile: Dockerfile
       tags: latest
@@ -21,10 +23,12 @@ steps:
         from_secret: loginName
       password:
         from_secret: pwd
-      repo: 192.168.1.161:81/library/drone-demo
-      registry: 192.168.1.161:81
+      repo: drone-harbor.powertime.cn:444/library/drone-demo
+      registry: drone-harbor.powertime.cn:444
       debug: true
-      insecure: true
+
+      add_host:
+        - drone-harbor.powertime.cn:192.168.1.161
 
 volumes:
   - name: maven_cache
