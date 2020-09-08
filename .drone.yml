@@ -24,6 +24,7 @@ steps:
       repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
       debug: true
+      add_host: drone-harbor.powertime.cn:192.168.1.161
 
 volumes:
   - name: maven_cache
