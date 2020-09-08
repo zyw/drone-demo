@@ -18,7 +18,7 @@ steps:
       dockerfile: Dockerfile
       tags: latest
       username:
-        from_secret: loginNam
+        from_secret: loginName
       password:
         from_secret: pwd
       repo: drone-harbor.powertime.cn:444/library/drone-demo
