@@ -39,6 +39,7 @@ steps:
 # 利用kubectl镜像部署镜像到k8s或者rancher
   - name: deploy-kube
     image: bitnami/kubectl
+    # 挂载宿主机的kubeconfig文件到容器
     volumes:
       - name: kube-config
         path: /.kube/config
