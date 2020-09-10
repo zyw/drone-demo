@@ -21,7 +21,7 @@ metadata:
   labels:
     app: drone-demo
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       name: drone-demo
@@ -50,7 +50,7 @@ metadata:
 spec:
   rules:
     - host: drone.v5cn.cn
-    - http:
+      http:
         paths:
           - path: /
             backend:
