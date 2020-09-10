@@ -45,9 +45,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /k8s-test
 spec:
   rules:
+    - host: dd.default.192.168.1.190.xip.io
     - http:
         paths:
-          - path: /k8s-test
+          - path: /index
             backend:
               serviceName: drone-demo-service
               servicePort: 8080
