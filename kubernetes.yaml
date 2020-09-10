@@ -42,13 +42,13 @@ kind: Ingress
 metadata:
   name: test-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /k8s-test
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: dd.default.192.168.1.190.xip.io
+    - host: drone.v5cn.cn
     - http:
         paths:
-          - path: /index
+          - path: /
             backend:
               serviceName: drone-demo-service
               servicePort: 8080
