@@ -9,8 +9,8 @@ spec:
     - protocol: TCP
       port: 8080            # 服务端口, 内部可访问
       targetPort: 9999      # 目标端口, 此处指的是pod的8080端口
-#      nodePort: 30080		# 节点端口, 外部可访问
-  type: ClusterIP
+      nodePort: 30080		# 节点端口, 外部可访问
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -36,3 +36,19 @@ spec:
   selector:
     matchLabels:
       app: drone-demo
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /k8s-test
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /k8s-test
+            backend:
+              serviceName: drone-demo-service
+              servicePort: 8080
+  
