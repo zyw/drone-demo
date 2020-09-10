@@ -37,7 +37,7 @@ steps:
 #      script:
 #        docker run -d --name drone-demo -p 9999:9999 registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
   - name: deploy-kube
-    image: vallard/drone-kube
+    image: danielgormly/drone-plugin-kube:0.0.1
     settings:
       template: kubernetes.yaml
       server: https://192.168.1.190:6443
