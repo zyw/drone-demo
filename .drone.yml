@@ -39,8 +39,8 @@ steps:
   - name: deploy-kube
     image: bitnami/kubectl
     volumes:
-      - name kube-config
-      - path: /.kube/config
+      - name: kube-config
+        path: /.kube/config
     commands:
       - kubectl applay -f kubernetes.yaml
     when:
