@@ -7,9 +7,10 @@ spec:
     app: drone-demo
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 9999
-  type: NodePort
+      port: 8080            # 服务端口, 内部可访问
+      targetPort: 9999      # 目标端口, 此处指的是pod的8080端口
+#      nodePort: 30080		# 节点端口, 外部可访问
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
