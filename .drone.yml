@@ -42,7 +42,7 @@ steps:
       - name: kube-config
         path: /.kube/config
     commands:
-      - kubectl applay -f kubernetes.yaml
+      - kubectl apply -f kubernetes.yaml
     when:
       event: [push]
       status: [ success ]
