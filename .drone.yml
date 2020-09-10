@@ -36,6 +36,7 @@ steps:
 #      port: 22
 #      script:
 #        docker run -d --name drone-demo -p 9999:9999 registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
+# 利用kubectl镜像部署镜像到k8s或者rancher
   - name: deploy-kube
     image: bitnami/kubectl
     volumes:
