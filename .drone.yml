@@ -37,12 +37,12 @@ steps:
 #      script:
 #        docker run -d --name drone-demo -p 9999:9999 registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
   - name: deploy-kube
-    image: danielgormly/drone-plugin-kube:0.0.1
-    settings:
-      template: kubernetes.yaml
-      server: https://192.168.1.190:6443
-      token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjVCcWJQU1dQU05GRS1KckNJeURZaktEcVduUmFXUnVZUXdrc0xoZ25JRWsifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tdnNya2siLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjdjYzM2N2IyLTA2NjctNDE1YS05NjRmLTYzZTQ1YmNlYzU2MyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmRlZmF1bHQifQ.ALorVEG7N6D5D-YFw66SmqCT0FWrYQ-uxGSUQ69aajdzApvZ1SLuFEgliVhDmlOQoiR2imdAxqklUA23QVUPhry_YieQwqsWe7d60DS_2gv4DE25dKntFtYxah2jhbTZ6kLHCyzzpgk760N3xfrJZNNOM2x5PZH_Yld9fl6piqV0ViE-ChZ44ZZfiudMjDerDyP0FVap7Ig7GTPT_FgGzXohonVcoNdiL6-mY62OkgOevlps5aCtVU39gBAf9bwyjpfJg7ad1A0py0RpBah6UXGlnavLNb2DJiOYHIOoWHhUVYm1mMHGXJvs_64lU8hiOAV1pCPXdw1Opyk4hv_-Rw
-      ca: ZXlKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNklqVkNjV0pRVTFkUVUwNUdSUzFLY2tOSmVVUlpha3RFY1ZkdVVtRlhVblZaVVhkcmMweG9aMjVKUldzaWZRLmV5SnBjM01pT2lKcmRXSmxjbTVsZEdWekwzTmxjblpwWTJWaFkyTnZkVzUwSWl3aWEzVmlaWEp1WlhSbGN5NXBieTl6WlhKMmFXTmxZV05qYjNWdWRDOXVZVzFsYzNCaFkyVWlPaUprWldaaGRXeDBJaXdpYTNWaVpYSnVaWFJsY3k1cGJ5OXpaWEoyYVdObFlXTmpiM1Z1ZEM5elpXTnlaWFF1Ym1GdFpTSTZJbVJsWm1GMWJIUXRkRzlyWlc0dGRuTnlhMnNpTENKcmRXSmxjbTVsZEdWekxtbHZMM05sY25acFkyVmhZMk52ZFc1MEwzTmxjblpwWTJVdFlXTmpiM1Z1ZEM1dVlXMWxJam9pWkdWbVlYVnNkQ0lzSW10MVltVnlibVYwWlhNdWFXOHZjMlZ5ZG1salpXRmpZMjkxYm5RdmMyVnlkbWxqWlMxaFkyTnZkVzUwTG5WcFpDSTZJamRqWXpNMk4ySXlMVEEyTmpjdE5ERTFZUzA1TmpSbUxUWXpaVFExWW1ObFl6VTJNeUlzSW5OMVlpSTZJbk41YzNSbGJUcHpaWEoyYVdObFlXTmpiM1Z1ZERwa1pXWmhkV3gwT21SbFptRjFiSFFpZlEuQUxvclZFRzdONkQ1RC1ZRnc2NlNtcUNUMEZXcllRLXV4R1NVUTY5YWFqZHpBcHZaMVNMdUZFZ2xpVmhEbWxPUW9pUjJpbWRBeHFrbFVBMjNRVlVQaHJ5X1lpZVF3cXNXZTdkNjBEU18yZ3Y0REUyNWRLbnRGdFl4YWgyamhiVFo2a0xIQ3l6enBnazc2ME4zeGZySlpOTk9NMng1UFpIX1lsZDlmbDZwaXFWMFZpRS1DaFo0NFpaZml1ZE1qRGVyRHlQMEZWYXA3SWc3R1RQVF9GZ0d6WG9ob25WY29OZGlMNi1tWTYyT2tnT2V2bHBzNWFDdFZVMzlnQkFmOWJ3eWpwZkpnN2FkMUEwcHkwUnBCYWg2VVhHbG5hdkxOYjJESmlPWUhJT29XSGhVVlltMW1NSEdYSnZzXzY0bFU4aGlPQVYxcENQWGR3MU9weWs0aHZfLVJ3
+    image: bitnami/kubectl
+    volumes:
+      - name kube-config
+      - path: /.kube/config
+    commands:
+      - kubectl applay -f kubernetes.yaml
     when:
       event: [push]
       status: [ success ]
@@ -51,3 +51,6 @@ volumes:
   - name: maven_cache
     host:
       path: /mnt/maven_cache
+  - name: kube-config
+    host:
+      path: /mnt/kubectl/config
