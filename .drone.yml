@@ -20,9 +20,11 @@ steps:
       dockerfile: Dockerfile
       tags: latest
       username:
-        from_secret: loginName
+        #from_secret: loginName
+        from_secret: harbor
       password:
-        from_secret: pwd
+        #from_secret: pwd
+        from_secret: harborPwd
       #repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
       #registry: registry.cn-hangzhou.aliyuncs.com
       repo: drone-harbor.powertime.cn:444/library/drone-demo
