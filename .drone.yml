@@ -16,6 +16,9 @@ steps:
   # 打包docker镜像到仓库
   - name: build-img
     image: plugins/docker
+    volumes:
+      - name: docker-certs
+        path: /etc/docker/certs.d/
     settings:
       dockerfile: Dockerfile
       tags: latest
@@ -27,10 +30,9 @@ steps:
         from_secret: harborPwd
       #repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
       #registry: registry.cn-hangzhou.aliyuncs.com
-      repo: drone-harbor.powertime.cn:81/library/drone-demo
-      registry: drone-harbor.powertime.cn:81
+      repo: drone-harbor.powertime.cn:444/library/drone-demo
+      registry: drone-harbor.powertime.cn:444
       debug: true
-      insecure: true
 #      custom_dns: [ 192.168.1.254 ]
   # 利用ssh插件部署应用到知道服务器
 #  - name: deploy
@@ -62,3 +64,6 @@ volumes:
   - name: kube-config
     host:
       path: /mnt/kubectl/config
+  - name: docker-certs
+    host:
+      path: /etc/docker/certs.d/
