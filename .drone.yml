@@ -23,9 +23,12 @@ steps:
         from_secret: loginName
       password:
         from_secret: pwd
-      repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
-      registry: registry.cn-hangzhou.aliyuncs.com
+      #repo: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
+      #registry: registry.cn-hangzhou.aliyuncs.com
+      repo: drone-harbor.powertime.cn:444/library/drone-demo
+      registry: drone-harbor.powertime.cn:444
       debug: true
+      custom_dns: 192.168.1.254
   # 利用ssh插件部署应用到知道服务器
 #  - name: deploy
 #    image: appleboy/drone-ssh
