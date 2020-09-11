@@ -30,7 +30,7 @@ steps:
       repo: drone-harbor.powertime.cn:444/library/drone-demo
       registry: drone-harbor.powertime.cn:444
       debug: true
-      custom_dns: 192.168.1.254
+      custom_dns: [ 192.168.1.254 ]
   # 利用ssh插件部署应用到知道服务器
 #  - name: deploy
 #    image: appleboy/drone-ssh
