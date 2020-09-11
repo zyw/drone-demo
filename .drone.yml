@@ -16,6 +16,7 @@ steps:
   # 打包docker镜像到仓库
   - name: build-img
     image: plugins/docker
+    # 挂载宿主机中docker镜像私有仓库证书
     volumes:
       - name: docker-certs
         path: /etc/docker/certs.d/
@@ -58,12 +59,15 @@ steps:
       status: [ success ]
 
 volumes:
+  # maven缓存位置
   - name: maven_cache
     host:
       path: /mnt/maven_cache
-  - name: kube-config
-    host:
-      path: /mnt/kubectl/config
+  # docker私有仓库证书位置
   - name: docker-certs
     host:
       path: /etc/docker/certs.d/
+  # k8s config文件位置
+  - name: kube-config
+    host:
+      path: /mnt/kubectl/config
