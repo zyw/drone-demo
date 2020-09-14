@@ -60,7 +60,7 @@ steps:
 
   trigger:
     branch:
-      - dev
+    - dev
 
 volumes:
   # maven缓存位置
