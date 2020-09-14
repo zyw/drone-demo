@@ -2,6 +2,10 @@ kind: pipeline
 type: docker
 name: default
 
+trigger:
+  branch:
+    - master
+
 steps:
   # 编译构件java代码
   - name: build-jar
@@ -57,11 +61,6 @@ steps:
     when:
       event: [push]
       status: [ success ]
-
-
-  trigger:
-    branch:
-    - dev
 
 volumes:
   # maven缓存位置
