@@ -58,6 +58,7 @@ steps:
       event: [push]
       status: [ success ]
 
+
   trigger:
     branch:
     - dev
