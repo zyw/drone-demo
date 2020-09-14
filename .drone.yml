@@ -4,7 +4,7 @@ name: default
 
 trigger:
   branch:
-    - master
+    - dev
 
 steps:
   # 编译构件java代码
@@ -75,3 +75,4 @@ volumes:
   - name: kube-config
     host:
       path: /mnt/kubectl/config
+
