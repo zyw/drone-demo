@@ -58,6 +58,10 @@ steps:
       event: [push]
       status: [ success ]
 
+  trigger:
+    branch:
+      - dev
+
 volumes:
   # maven缓存位置
   - name: maven_cache
