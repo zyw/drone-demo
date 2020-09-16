@@ -1,7 +1,9 @@
+# 开发环境构建
 kind: pipeline
 type: docker
-name: default
+name: dev-default
 
+# 使用trigger隔离构件分钟，也可以使用条件构建 https://docs.drone.io/pipeline/conditions/
 trigger:
   branch:
     - dev
@@ -77,9 +79,10 @@ volumes:
       path: /mnt/kubectl/config
 
 ---
+# 生产环境构建
 kind: pipeline
 type: docker
-name: default2
+name: prod-default2
 
 trigger:
   branch:
