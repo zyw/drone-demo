@@ -15,7 +15,7 @@ public class IndexController {
     @GetMapping("/index")
     public Object index() throws IOException {
 
-        File flie = new File("/mnt/disks/vol1");
+        File flie = new File("/mnt/data");
         if(!(!flie.exists() && flie.mkdirs())) {
             throw new RuntimeException("创建目录失败");
         }
