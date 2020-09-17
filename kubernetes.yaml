@@ -41,7 +41,7 @@ spec:
 #          image: registry.cn-hangzhou.aliyuncs.com/zywlxh/drone-demo
           image: harbor.xa/library/drone-demo
           # 镜像拉取策略
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 9999
           volumeMounts:
