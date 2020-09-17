@@ -44,14 +44,14 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9999
-          volumeMounts:
-            - mountPath: "/mnt"
-              name: local-test
-      volumes:
-        - name: local-test
-          persistentVolumeClaim:
-            # Rancher中创建了一个名为test的PVC
-            claimName: example-local-claim
+#          volumeMounts:
+#            - mountPath: "/mnt"
+#              name: local-test
+#      volumes:
+#        - name: local-test
+#          persistentVolumeClaim:
+#            # Rancher中创建了一个名为test的PVC
+#            claimName: example-local-claim
 ---
 # 定义Ingress
 apiVersion: networking.k8s.io/v1beta1
