@@ -15,12 +15,14 @@ public class IndexController {
     @GetMapping("/index")
     public Object index() throws IOException {
 
-        File flie = new File("/mnt/data");
-        if(!(!flie.exists() && flie.mkdirs())) {
-            throw new RuntimeException("创建目录失败");
+        File flie = new File("/mnt/data/hello.txt");
+        if(!flie.exists()) {
+            if(!flie.getParentFile().exists()) {
+                flie.getParentFile().mkdirs();
+            }
+            flie.createNewFile();
         }
-        File text = new File(flie.getAbsolutePath() + "/hello.txt");
-        FileOutputStream fos = new FileOutputStream(text);
+        FileOutputStream fos = new FileOutputStream(flie,true);
         fos.write("Hello World".getBytes(StandardCharsets.UTF_8));
         fos.flush();
         fos.close();
