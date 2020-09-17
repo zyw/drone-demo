@@ -19,11 +19,11 @@ public class IndexController {
         if(!(!flie.exists() && flie.mkdirs())) {
             throw new RuntimeException("创建目录失败");
         }
-        File text = new File(flie + "/hello.txt");
+        File text = new File(flie.getAbsolutePath() + "/hello.txt");
         FileOutputStream fos = new FileOutputStream(text);
         fos.write("Hello World".getBytes(StandardCharsets.UTF_8));
         fos.flush();
         fos.close();
-        return "Hello Drone";
+        return "Hello Drone 成功 ~~~~~~";
     }
 }
