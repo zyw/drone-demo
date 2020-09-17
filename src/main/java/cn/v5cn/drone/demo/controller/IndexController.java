@@ -17,6 +17,7 @@ public class IndexController {
 
         File flie = new File("/mnt/data/hello.txt");
         if(!flie.exists()) {
+            System.out.println(flie.getParent() + "--------------------------------------");
             if(!flie.getParentFile().exists()) {
                 flie.getParentFile().mkdirs();
             }
