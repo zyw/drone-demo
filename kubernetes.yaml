@@ -45,7 +45,7 @@ spec:
           ports:
             - containerPort: 9999
           volumeMounts:
-            - mountPath: "/mnt/data"
+            - mountPath: "/mnt"
               name: local-test
       volumes:
         - name: local-test
