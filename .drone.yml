@@ -28,7 +28,9 @@ steps:
         path: /etc/docker/certs.d/
     settings:
       dockerfile: Dockerfile
-      tags: latest
+#      tags: latest
+      auto_tag: true
+      auto_tag_suffix: dev
       username:
         #from_secret: loginName
         from_secret: harbor
