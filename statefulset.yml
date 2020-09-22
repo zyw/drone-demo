@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: name
+  labels:
+    app:
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: name
+      labels:
+        app:
+    spec:
+      containers:
+        - name: name
+          image: nginx
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes:
+          - "ReadWriteOnce"
+        storageClassName: "my-storage-class"
+        resources:
+          requests:
+            storage: 1Gi
+  selector:
+    matchLabels:
+      app:
+  serviceName: name-svc
+
+
